@@ -1,0 +1,19 @@
+---
+- hosts: manager
+  remote_user: <admin user>
+  become: true
+  become_method: sudo
+
+  tasks:
+    - copy:
+        src: ../FluentD/td-agent.conf
+        dest: /etc/td-agent/td-agent.conf
+        backup: yes
+    - copy:
+        src: ../FluentD/td-agent.metrics.conf
+        dest: /etc/td-agent/td-agent.metrics.conf
+        backup: yes
+    - service:
+        name: td-agent
+        state: restarted
+  

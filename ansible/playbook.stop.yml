@@ -1,0 +1,11 @@
+---
+- hosts: all
+  remote_user: <admin user>
+  become: true
+  become_method: sudo
+
+  tasks:
+    - service:
+        name: td-agent
+        state: stopped
+  

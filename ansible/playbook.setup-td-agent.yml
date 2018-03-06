@@ -1,0 +1,10 @@
+---
+- hosts: master
+  remote_user: clouderaadmin
+  become: true
+  become_method: sudo
+
+  tasks:
+    - script: ./install-td-agent.sh
+
+  

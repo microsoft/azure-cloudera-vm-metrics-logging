@@ -1,0 +1,5 @@
+# List all of the Cloudera management nodes
+[master]
+
+# List all of the Cloudera data nodes
+[data]
