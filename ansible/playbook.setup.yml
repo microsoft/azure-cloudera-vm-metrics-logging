@@ -1,0 +1,30 @@
+---
+- hosts: cdh_servers
+  remote_user: <admin user>
+  become: true
+  become_method: sudo
+  tasks:
+    - name: Copy cloudera conf
+      copy:
+        src: ../FluentD/td-agent.cloudera.conf
+        dest: /etc/td-agent/td-agent.cloudera.conf
+        backup: yes
+    - script: update_tdagent_conf.sh /etc/td-agent/td-agent.cloudera.conf
+    - service:
+        name: td-agent
+        state: restarted
+
+- hosts: scm_server
+  remote_user: <admin user>
+  become: true
+  become_method: sudo
+  tasks:
+    - name: Copy metrics conf
+      copy:
+        src: ../FluentD/td-agent.metrics.conf
+        dest: /etc/td-agent/td-agent.metrics.conf
+        backup: yes
+    - script: update_tdagent_conf.sh /etc/td-agent/td-agent.metrics.conf
+    - service:
+        name: td-agent
+        state: restarted

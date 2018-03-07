@@ -47,7 +47,7 @@ ansible all -m ping -u <username> -i hosts --ask-pass
 ```
 3. Run Ansible playbook
 ```
-ansible-playbook playbook.yml -i hosts --ask-pass --ask-pass --ask-become-pass
+ansible-playbook playbook.yml -i ansible_inventory --ask-pass --ask-pass --ask-become-pass
 ```
 
 # Splunk
