@@ -8,4 +8,9 @@
     - service:
         name: td-agent
         state: stopped
-  
+    - copy:
+        src: ../FluentD/td-agent.conf
+        dest: /etc/td-agent/td-agent.conf
+
+ # Run the setup playbook 
+- import_playbook: playbook.setup.yml
