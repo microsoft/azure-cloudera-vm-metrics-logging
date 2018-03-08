@@ -21,5 +21,5 @@ else
     cat td-agent.metrics.conf /etc/td-agent/td-agent.conf.bak > /etc/td-agent/td-agent.conf
 fi
 
-# Restart the td-agent
-/etc/init.d/td-agent restart
+# Start the td-agent
+/etc/init.d/td-agent start
