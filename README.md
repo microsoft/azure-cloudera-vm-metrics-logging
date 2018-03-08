@@ -1,4 +1,14 @@
-# Installing Fluentd on CentOS RHEL 7.4
+# Running and Install the Clouder and VM metrics fluentd agent
+1. Update the fluentd configurations under the FluentD folder
+2. Download the in_clouderametrics.rb from https://github.com/wesyao/fluent-plugin-clouderametrics. 
+3. Run the packaging script to have a simple tar.gz file of all of the configuration files. Note: scripts/td-agent-config is a temporary folder
+```
+./package-tar-file.sh
+```
+4. Upload these files to the VMs that need to be configured
+5. There is a README inside the tar file with some example steps on how to execute one of the two options to install the configuration on the VM.
+
+# Installing TD-Agent on CentOS RHEL 7.4
 1. Install the TD Fluentd agent
 ```
 curl -L https://toolbelt.treasuredata.com/sh/install-redhat-td-agent3.sh | sh
