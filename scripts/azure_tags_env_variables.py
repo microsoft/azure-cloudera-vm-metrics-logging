@@ -11,6 +11,6 @@ res_tags = res_json['compute']['tags']
 with open("AzureTagsEnvVariables", "w") as file_obj:
   for pair in res_tags.split(';'):
     pair = pair.encode('ascii', 'ignore').upper()
-    key_value = pair.split(':')
+    key_value = pair.split(':', 1)
     print "key='{0}', value='{1}'\n".format(key_value[0], key_value[1])
     file_obj.write("export AZ_{0}=\"{1}\"\n".format(key_value[0], key_value[1]))
